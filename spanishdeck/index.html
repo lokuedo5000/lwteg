@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lectura de Cartas Españolas</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>🎴 Lectura de Cartas Españolas</h1>
+      <p>Descubre tu destino a través de la sabiduría de la baraja española</p>
+    </header>
+
+    <div class="container">
+      <div class="card-selection">
+        <button id="startReading" class="btn">Iniciar Nueva Lectura</button>
+
+        <div id="readingType" class="reading-type hidden">
+          <select id="readingSelect">
+            <option value="3">Lectura Simple (3 cartas)</option>
+            <option value="5">Cruz del Destino (5 cartas)</option>
+            <option value="7">Lectura Completa (7 cartas)</option>
+          </select>
+          <button id="beginReading" class="btn">Comenzar Lectura</button>
+        </div>
+      </div>
+
+      <div id="cardsContainer" class="cards-container hidden"></div>
+      <div id="interpretation" class="interpretation hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+      const TAROT_MEANINGS = {
+        oros: {
+          general: "Representa aspectos materiales, dinero, prosperidad",
+          1: "Riqueza inesperada, regalo, oportunidad financiera",
+          2: "Balance en finanzas, decisiones sobre dinero",
+          3: "Crecimiento material, pequeñas ganancias",
+          4: "Estabilidad financiera, seguridad material",
+          5: "Cambios en lo material, pérdidas temporales",
+          6: "Generosidad, dar y recibir",
+          7: "Éxito material, logros financieros",
+          10: "Rey: Hombre de negocios, autoridad financiera",
+          11: "Caballo: Oportunidades de negocio, mensajero",
+          12: "Sota: Noticias sobre dinero o negocios",
+        },
+        copas: {
+          general: "Representa emociones, amor, sentimientos",
+          1: "Nuevo amor, felicidad, inicio emocional",
+          2: "Pareja, decisiones del corazón",
+          3: "Celebración, alegría compartida",
+          4: "Nostalgia, recuerdos, melancolía",
+          5: "Decepciones emocionales, pérdidas",
+          6: "Pasado que vuelve, recuerdos felices",
+          7: "Sueños, ilusiones, fantasías",
+          10: "Rey: Hombre maduro emocional, consejero",
+          11: "Caballo: Propuestas románticas, pretendiente",
+          12: "Sota: Mensajes de amor, noticias sentimentales",
+        },
+        espadas: {
+          general: "Representa conflictos, luchas, decisiones",
+          1: "Victoria, triunfo sobre adversidades",
+          2: "Equilibrio en conflictos, decisiones difíciles",
+          3: "Dolor emocional, separación",
+          4: "Reposo, recuperación, sanación",
+          5: "Pérdidas, dificultades, obstáculos",
+          6: "Viaje necesario, transición",
+          7: "Planes secretos, estrategias",
+          10: "Rey: Hombre autoritario, juez",
+          11: "Caballo: Rival, oponente, enemigo",
+          12: "Sota: Espionaje, vigilancia, traición",
+        },
+        bastos: {
+          general: "Representa trabajo, creatividad, proyectos",
+          1: "Inicio de proyecto, nueva empresa",
+          2: "Sociedad, colaboración laboral",
+          3: "Trabajo en equipo, expansión",
+          4: "Estabilidad laboral, logros",
+          5: "Competencia, rivalidad profesional",
+          6: "Éxito merecido, reconocimiento",
+          7: "Discusiones, conflictos laborales",
+          10: "Rey: Jefe, líder, empresario",
+          11: "Caballo: Avance profesional, promoción",
+          12: "Sota: Estudiante, aprendiz, mensajero",
+        },
+      };
+
+      document.addEventListener("DOMContentLoaded", () => {
+        console.log("DOM Loaded");
+        try {
+          console.log("Iniciando aplicación de Tarot");
+          initTarotApp(TAROT_MEANINGS, "img/");
+          console.log("Aplicación iniciada correctamente");
+        } catch (error) {
+          console.error("Error al iniciar la aplicación:", error);
+        }
+      });
+    </script>
+  </body>
+</html>
